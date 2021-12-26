@@ -3,7 +3,6 @@ let inputDirection = {x: 0, y:0}; // keyboard controlled input direction;
 let lastInputDirection = {x: 0, y:0}; //using it to lock the same direction
 // key controls
 window.addEventListener('keydown', e => {
-    console.log(e.key);
     switch (e.key) {
       case 'ArrowUp':
         if(lastInputDirection.y !== 0) break;
