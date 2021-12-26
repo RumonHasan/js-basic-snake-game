@@ -1,4 +1,5 @@
 import {SNAKE_SPEED, updateSnake, drawSnake} from './snake.js';
+import {updateFood, drawFood} from './food.js';
 let lastTime = 0;
 const gameBoard = document.getElementById('game-board');
 
@@ -16,12 +17,15 @@ function main(currentTime){
     draw(); // draws the food when the snake is updated
 }
 
-window.requestAnimationFrame(main);
+window.requestAnimationFrame(main); // starting the frame animations for the first time
 
 function update(){
     updateSnake();
+    updateFood();
 }
 
 function draw(){
+    gameBoard.innerHTML=''; // clearing the game board in order to avoid copy of the elements
     drawSnake(gameBoard);
+    drawFood(gameBoard);
 }
