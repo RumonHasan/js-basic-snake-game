@@ -1,11 +1,11 @@
 import {onSnake, snakeExpansion} from './snake.js';
-let food = {x: 10, y:1}; // indexes are from 1 to 21 
+let food = getRandomFoodPositions(); // indexes are from 1 to 21 
 const SNAKE_EXPANSION_RATE = 1; // number blocks the snake will increase
 
 export function updateFood(){
     if(onSnake(food)){ // checking whether the snake is on the food or not
         snakeExpansion(SNAKE_EXPANSION_RATE);
-        food = {x: 20, y: 10}
+        food = getRandomFoodPositions();
     }
 }
 
@@ -15,4 +15,12 @@ export function drawFood(gameBoard){
     foodElement.style.gridColumnStart = food.x;
     foodElement.classList.add('food');
     gameBoard.appendChild(foodElement);
+}
+
+function getRandomFoodPositions (){
+    let newRandomFoodPosition;
+    while(newRandomFoodPosition === null && onSnake(newRandomFoodPosition)){
+        newRandomFoodPosition = randomFoodPosition();
+    }
+    return newRandomFoodPosition;
 }

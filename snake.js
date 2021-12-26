@@ -35,7 +35,7 @@ export function snakeExpansion(expansionRate){
 
 export function onSnake(foodPosition){
     return snakeBody.some((segment)=>{ // if any part of the snake returns true then it will return true
-        return samePositions(segment, foodPosition);
+        return samePositions(segment, foodPosition); // returns the boolean value after position check
     })
 }
 
